@@ -1,0 +1,44 @@
+{% extends 'application.html' %}
+
+{% block html_attribs %} lang="pt-BR" {% endblock %}
+
+{% block title %}Index{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1 class="text-center text-info">Bem-vindo ao Todo!</h1>
+</div>
+{% if tasks|length <1 %} <h4 class="text-center text-warning">Não há tarefas. Crie uma abaixo!</h4>
+    {% else %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Description</th>
+                <th>Create</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in tasks %}
+            <tr>
+                <td>{{ task.description }}</td>
+                <td>{{ task.date_created.date() }}</td>
+                <td>
+                    <a href="/update/{{task.id}}" class="btn btn-success">Update</a>
+                    <a href="/delete/{{task.id}}" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+    <div class="container">
+        <form action="/" method="POST" class="form-inline mx-auto text-center">
+            <div class="form-group">
+                <label for="description"></label>
+                <input type="text" class="form-control" name="description" id="description">
+                <button type="submit" class="btn btn-primary">Add</button>
+            </div>
+        </form>
+    </div>
+    {% endblock %}
