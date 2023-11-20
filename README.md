@@ -1,4 +1,4 @@
-Comandos utilizados para criar o projeto
+Comandos utilizados para criar o projeto:
 
 Criação de ambiente virtual: py -3 -m venv venv
 
@@ -17,6 +17,17 @@ Para inicializar o db no projeto: flask db init
 Para criar a migraçao: flask db migrate -m "initial migration"    
 Para aplicar a migraçao: flask db upgrade    
 
-Para instalar todos os requisitos e rodar o projeto:
+
+Para instalar todos os requisitos e rodar o projeto em uma determinada pasta:
+
+git clone https://github.com/lucasfbastos/flask-basic-todo.git
+
+cd flask-basic-todo
+
+py -3 -m venv venv
+
+venv\Scripts\Activate.ps1
+
 pip install -r requirements.txt
-flask run
+
+flask run --reload
