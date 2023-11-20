@@ -1,18 +1,22 @@
-comandos 
+Comandos utilizados para criar o projeto
 
-py -3 -m venv venv
+Criação de ambiente virtual: py -3 -m venv venv
 
-venv\Scripts\Activate.ps1
+Ativação do ambiente virtual: venv\Scripts\Activate.ps1
 
-pip install Flask
+Instalação do flask: pip install Flask
 
+Execução do servidor de desenvolvinmento: flask run --reload
+
+Instalação do bootstrap: pip install flask-bootstrap
+
+Instalação do SQLAlchemy e do wrapper Alembic: pip install flask-sqlalchemy flask-migrate
+
+Após configuracao do db no app.py:
+Para inicializar o db no projeto: flask db init  
+Para criar a migraçao: flask db migrate -m "initial migration"    
+Para aplicar a migraçao: flask db upgrade    
+
+Para instalar todos os requisitos e rodar o projeto:
+pip install -r requirements.txt
 flask run
-
-pip install flask-bootstrap
-
-pip install flask-sqlalchemy flask-migrate
-
-#após configuracao do db no app.py
-flask db init   #para inicializar o db no projeto
-flask db migrate -m "initial migration"    #para criar a migraçao
-flask db upgrade        #para aplicar a migraçao
